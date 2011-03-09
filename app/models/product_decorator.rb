@@ -1,5 +1,4 @@
 Product.class_eval do
-
   define_index do
 
     is_active_sql = "(products.deleted_at IS NULL AND products.available_on <= NOW() #{'AND (products.count_on_hand > 0)' unless Spree::Config[:allow_backorders]} )"
@@ -28,5 +27,4 @@ Product.class_eval do
     group_by :available_on
     has is_active_sql, :as => :is_active, :type => :boolean
   end
-
 end
