@@ -17,6 +17,8 @@ module SpreeSphinxSearch
         Rails.env == "production" ? require(c) : load(c)
       end
     end
+    def load_tasks
+    end
     config.to_prepare &method(:activate).to_proc
     config.autoload_paths += %W(#{config.root}/lib)
   end
